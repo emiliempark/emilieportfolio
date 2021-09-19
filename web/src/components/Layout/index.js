@@ -1,15 +1,15 @@
 import React from "react";
 import Header from "../header";
-import { createGlobalStyle } from 'styled-components';
-import {GlobalStyles} from './styles';
+import { createGlobalStyle, ThemeProvider } from 'styled-components';
+import {GlobalStyles, theme, ContentStyles} from './styles';
 
 import * as styles from "./layout.module.css";
 
 const Layout = ({ children, onHideNav, onShowNav, showNav, siteTitle }) => (
-  <>
+  <ThemeProvider theme={theme}>
   <GlobalStyles />
     <Header siteTitle={siteTitle} onHideNav={onHideNav} onShowNav={onShowNav} showNav={showNav} />
-    <div className={styles.content}>{children}</div>
+    <ContentStyles>{children}</ContentStyles>
     <footer className={styles.footer}>
       <div className={styles.footerWrapper}>
         <div className={styles.siteInfo}>
@@ -19,7 +19,7 @@ const Layout = ({ children, onHideNav, onShowNav, showNav, siteTitle }) => (
         </div>
       </div>
     </footer>
-  </>
+  </ThemeProvider>
 );
 
 export default Layout;
