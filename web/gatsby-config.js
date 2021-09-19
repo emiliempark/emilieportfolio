@@ -10,6 +10,12 @@ const isProd = process.env.NODE_ENV === 'production'
 
 module.exports = {
   plugins: [
+    {
+      resolve: `gatsby-plugin-styled-components`,
+      options: {
+        // Add any options here
+      },
+    },
     'gatsby-plugin-postcss',
     'gatsby-plugin-react-helmet',
     {

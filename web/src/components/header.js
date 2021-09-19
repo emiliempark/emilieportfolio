@@ -1,12 +1,16 @@
 import { Link } from "gatsby";
 import React from "react";
+import styled from 'styled-components';
 import Icon from "./icon";
 import { cn } from "../lib/helpers";
 
 import * as styles from "./header.module.css";
 
+const Div = styled.div`
+background-color: silver
+`;
 const Header = ({ onHideNav, onShowNav, showNav, siteTitle }) => (
-  <div className={styles.root}>
+  <Div className={styles.root}>
     <div className={styles.wrapper}>
       <div className={styles.branding}>
         <Link to="/">{siteTitle}</Link>
@@ -24,7 +28,7 @@ const Header = ({ onHideNav, onShowNav, showNav, siteTitle }) => (
         </ul>
       </nav>
     </div>
-  </div>
+  </Div>
 );
 
 export default Header;
