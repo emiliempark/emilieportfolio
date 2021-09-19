@@ -1,6 +1,5 @@
 import styled, { createGlobalStyle } from 'styled-components';
 
-
 export const GlobalStyles = createGlobalStyle`
 
   html {
@@ -35,11 +34,11 @@ export const theme = {
   'color-accent': '#156dff',
 
   /* Typography */
-  'unit': 16,
-  'font-micro-size': '10px', /* 10px */
+  unit: 16,
+  'font-micro-size': '10px' /* 10px */,
   // 'font-micro-line-height': calc(12 / 10); /* 12px */
-  'font-small-size': '14px', /* 14px */
-  'font-small-line-height': '21px', /* 21px */
+  'font-small-size': '14px' /* 14px */,
+  'font-small-line-height': '21px' /* 21px */,
   // 'font-base-size': 1em; /* 16px */
   // 'font-base-line-height': calc(24 / var('unit)); /* 24px */
   // 'font-large-size': calc(18 / var('unit) * 1rem); /* 18px */
@@ -54,9 +53,8 @@ export const theme = {
 
   'media-min-small': 450,
   'media-max-small': 449,
-  'media-min-medium':  675,
+  'media-min-medium': 675,
   'media-min-large': 900
-
 };
 
 export const ContentStyles = styled.div`

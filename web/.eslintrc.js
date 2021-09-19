@@ -12,7 +12,7 @@ module.exports = {
     browser: true
   },
   rules: {
-    "react/prop-types": "off"
+    "react/prop-types": "off",
   },
   extends: [
     "eslint:recommended",

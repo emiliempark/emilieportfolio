@@ -1,12 +1,11 @@
-import React from "react";
-import Header from "../header";
+import React from 'react';
+import Header from '../Header/header';
 import { ThemeProvider } from 'styled-components';
-import {GlobalStyles, theme, ContentStyles, FooterStyles} from './styles';
-
+import { GlobalStyles, theme, ContentStyles, FooterStyles } from './styles';
 
 const Layout = ({ children, onHideNav, onShowNav, showNav, siteTitle }) => (
   <ThemeProvider theme={theme}>
-  <GlobalStyles />
+    <GlobalStyles />
     <Header siteTitle={siteTitle} onHideNav={onHideNav} onShowNav={onShowNav} showNav={showNav} />
     <ContentStyles>{children}</ContentStyles>
     <FooterStyles>
