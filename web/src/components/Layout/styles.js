@@ -36,10 +36,10 @@ export const theme = {
 
   /* Typography */
   'unit': 16,
-  'font-micro-size': 10, /* 10px */
+  'font-micro-size': '10px', /* 10px */
   // 'font-micro-line-height': calc(12 / 10); /* 12px */
-  // 'font-small-size': calc(14 / var('unit) * 1rem); /* 14px */
-  // 'font-small-line-height': calc(21 / 14); /* 21px */
+  'font-small-size': '14px', /* 14px */
+  'font-small-line-height': '21px', /* 21px */
   // 'font-base-size': 1em; /* 16px */
   // 'font-base-line-height': calc(24 / var('unit)); /* 24px */
   // 'font-large-size': calc(18 / var('unit) * 1rem); /* 18px */
@@ -65,5 +65,36 @@ export const ContentStyles = styled.div`
 
   @media (min-width: ${props => props.theme['media-min-small'] + 'px'}) {
     min-height: calc(100% - 88px - 150px);
+  }
+`;
+
+export const FooterStyles = styled.footer`
+  border-top: 1px solid ${props => props.theme['color-very-light-gray']};
+  & a {
+    color: inherit;
+    text-decoration: none;
+    &:hover {
+      color: ${props => props.theme['color-accent']};
+    }
+  }
+  .footerWrapper {
+    box-sizing: border-box;
+    max-width: 960px;
+    padding: 4.5em 1.5em 1.5em;
+    margin: 0 auto;
+
+    @media (min-width: ${props => props.theme['media-min-small'] + 'px'}) {
+      padding: 6em 2em 2em;
+    }
+  }
+  .companyAddress {
+    text-align: center;
+    margin: 0 0 1rem;
+  }
+
+  .siteInfo {
+    text-align: center;
+    font-size: ${props => props.theme['font-small-size']};
+    line-height: ${props => props.theme['font-small-line-height']};
   }
 `;
