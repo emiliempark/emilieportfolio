@@ -1,4 +1,6 @@
-const size = {
+// import { css } from 'styled-components';
+
+const breakpoints = {
   mobile: '450px',
   mobileMax: '449px',
   tablet: '675px',
@@ -6,8 +8,17 @@ const size = {
 };
 
 export const device = {
-  mobile: `(min-width: ${size.mobile})`,
-  mobileMax: `(max-width: ${size.mobileMax})`,
-  tablet: `(min-width: ${size.tablet})`,
-  desktop: `(min-width: ${size.desktop})`
+  mobile: `(min-width: ${breakpoints.mobile})`,
+  mobileMax: `(max-width: ${breakpoints.mobileMax})`,
+  tablet: `(min-width: ${breakpoints.tablet})`,
+  desktop: `(min-width: ${breakpoints.desktop})`
 };
+
+// export const respondTo = Object.keys(breakpoints).reduce((accumulator, label) => {
+//   accumulator[label] = (...args) => css`
+//     @media (min-width: ${breakpoints[label]}) {
+//       ${css(...args)};
+//     }
+//   `;
+//   return accumulator;
+// }, {});

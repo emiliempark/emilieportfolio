@@ -1,98 +1,104 @@
 import styled, { createGlobalStyle } from 'styled-components';
+import { device } from '../../styles/mediaQuery';
+import { contentMaxWidth } from '../../styles/mixins';
+
+export const theme = {
+  fontFamilySans: '-apple-system, BlinkMacSystemFont, sans-serif',
+
+  colorBlack: '#202123',
+  colorDarkGray: '#32373e',
+  colorGray: '#697a90',
+  colorLightGray: '#b4bcc7',
+  colorVeryLightGray: '#e7ebed',
+  colorVeryPaleGray: '#f2f2f2',
+  colorWhite: '#fff',
+  colorAccent: '#156dff',
+
+  /* Typography */
+  unit: 16,
+  fontMicroSize: '10px' /* 10px */,
+  get fontMicroLineHeight() {
+    return 12 / 10;
+  } /* 12px */,
+  fontSmallSize: '14px' /* 14px */,
+  get fontSmallLineHeight() {
+    return 21 / this.unit;
+  } /* 21px */,
+  fontBaseSize: '1em' /* 16px */,
+  get fontBaseLineHeight() {
+    return 24 / this.unit;
+  } /* 24px */,
+  fontLargeSize: '18px',
+  get fontLargeLineHeight() {
+    return 27 / 18;
+  } /* 27px */,
+  fontTitle3Size: '21px',
+  get fontTitle3LineHeight() {
+    return 30 / 21;
+  } /* 30px */,
+  fontTitle2Size: '24px' /* calc(24 / var('unit) * 1rem) */,
+  get fontTitle2LineHeight() {
+    return 33 / 24;
+  } /* 33px */,
+  fontTitlte1Size: '49px',
+  get fontTitle1LineHeight() {
+    return 57 / 49;
+  } /* 57px */
+};
 
 export const GlobalStyles = createGlobalStyle`
 
   html {
-    font-family: ${props => props.theme['font-family-sans']};
-    font-size: ${props => props.theme['unit']};
-    line-height: ${props => 24 / props.theme['unit']}; /* 24px */
+    font-family: ${props => props.theme.fontFamilySans};
+    font-size: ${props => props.theme.unit};
+    line-height: ${props => 24 / props.theme.unit}; /* 24px */
   }
   
   body {
     -webkit-font-smoothing: antialiased;
     margin: 0;
+    background-color: ${props => props.theme['color-very-pale-gray']};
   }
   
   html,
   body,
   body > div,
   body > div > div {
-    height: 100%;
+    /* height: 100%; */
   }
   
 `;
 
-export const theme = {
-  'font-family-sans': '-apple-system, BlinkMacSystemFont, sans-serif',
-
-  'color-black': '#202123',
-  'color-dark-gray': '#32373e',
-  'color-gray': '#697a90',
-  'color-light-gray': '#b4bcc7',
-  'color-very-light-gray': '#e7ebed',
-  'color-white': '#fff',
-  'color-accent': '#156dff',
-
-  /* Typography */
-  unit: 16,
-  'font-micro-size': '10px' /* 10px */,
-  // 'font-micro-line-height': calc(12 / 10); /* 12px */
-  'font-small-size': '14px' /* 14px */,
-  'font-small-line-height': '21px' /* 21px */,
-  // 'font-base-size': 1em; /* 16px */
-  // 'font-base-line-height': calc(24 / var('unit)); /* 24px */
-  // 'font-large-size': calc(18 / var('unit) * 1rem); /* 18px */
-  // 'font-large-line-height': calc(27 / 18); /* 27px */
-
-  // 'font-title3-size': calc(21 / var('unit) * 1rem); /* 21px */
-  // 'font-title3-line-height': calc(30 / 21); /* 30px */
-  // 'font-title2-size': calc(24 / var('unit) * 1rem); /* 24px */
-  // 'font-title2-line-height': calc(33 / 24); /* 33px */
-  // 'font-title1-size': calc(49 / var('unit) * 1rem); /* 49px */
-  // 'font-title1-line-height': calc(57 / 49); /* 57px */
-
-  'media-min-small': 450,
-  'media-max-small': 449,
-  'media-min-medium': 675,
-  'media-min-large': 900
-};
-
 export const ContentStyles = styled.div`
-  background: ${props => props.theme['color-white']};
+  // 100% - <header height> - <footer height>
   min-height: calc(100% - 73px - 120px);
 
-  @media (min-width: ${props => props.theme['media-min-small'] + 'px'}) {
+  @media ${device.mobile} {
+    // 100% - <header height> - <footer height>
     min-height: calc(100% - 88px - 150px);
   }
 `;
 
 export const FooterStyles = styled.footer`
-  border-top: 1px solid ${props => props.theme['color-very-light-gray']};
+  border-top: 1px solid ${props => props.theme.colorLightGray};
   & a {
     color: inherit;
     text-decoration: none;
     &:hover {
-      color: ${props => props.theme['color-accent']};
+      color: ${props => props.theme.colorAccent};
     }
   }
   .footerWrapper {
-    box-sizing: border-box;
-    max-width: 960px;
-    padding: 4.5em 1.5em 1.5em;
-    margin: 0 auto;
-
-    @media (min-width: ${props => props.theme['media-min-small'] + 'px'}) {
-      padding: 6em 2em 2em;
+    ${contentMaxWidth};
+    padding-top: 1em;
+    padding-bottom: 1em;
+    @media ${device.mobile} {
     }
-  }
-  .companyAddress {
-    text-align: center;
-    margin: 0 0 1rem;
-  }
 
-  .siteInfo {
-    text-align: center;
-    font-size: ${props => props.theme['font-small-size']};
-    line-height: ${props => props.theme['font-small-line-height']};
+    .siteInfo {
+      text-align: center;
+      font-size: ${props => props.theme.fontSmallSize};
+      line-height: ${props => props.theme.fontSmallLineHeight};
+    }
   }
 `;
