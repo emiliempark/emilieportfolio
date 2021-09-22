@@ -1,12 +1,18 @@
 import styled, { createGlobalStyle } from 'styled-components';
 import { device } from '../../styles/mediaQuery';
 import { contentMaxWidth } from '../../styles/mixins';
+import montserrantExtrabold from '../../fonts/montserrat-extrabold-webfont.woff';
+import montserrantExtrabold2 from '../../fonts/montserrat-extrabold-webfont.woff2';
+import montserrantSemibold from '../../fonts/montserrat-semibold-webfont.woff';
+import montserrantSemibold2 from '../../fonts/montserrat-semibold-webfont.woff2';
+import montserrantRegular from '../../fonts/montserrat-regular-webfont.woff';
+import montserrantRegular2 from '../../fonts/montserrat-regular-webfont.woff2';
 
 export const theme = {
   fontFamilySans: '-apple-system, BlinkMacSystemFont, sans-serif',
 
   colorBlack: '#202123',
-  colorDarkGray: '#32373e',
+  colorVeryDarkGray: '#32373e',
   colorGray: '#697a90',
   colorLightGray: '#b4bcc7',
   colorVeryLightGray: '#e7ebed',
@@ -48,6 +54,31 @@ export const theme = {
 
 export const GlobalStyles = createGlobalStyle`
 
+  @font-face {
+      font-family: 'montserratextrabold';
+      src: url(${montserrantExtrabold2}) format('woff2'),
+          url(${montserrantExtrabold}) format('woff');
+      font-weight: normal;
+      font-style: normal;
+  }
+
+  @font-face {
+      font-family: 'montserratsemibold';
+      src: url(${montserrantSemibold2}) format('woff2'),
+          url(${montserrantSemibold}) format('woff');
+      font-weight: normal;
+      font-style: normal;
+  }
+
+  @font-face {
+      font-family: 'montserratregular';
+      src: url(${montserrantRegular2}) format('woff2'),
+          url(${montserrantRegular}) format('woff');
+      font-weight: normal;
+      font-style: normal;
+  }
+
+
   html {
     font-family: ${props => props.theme.fontFamilySans};
     font-size: ${props => props.theme.unit};
@@ -57,7 +88,7 @@ export const GlobalStyles = createGlobalStyle`
   body {
     -webkit-font-smoothing: antialiased;
     margin: 0;
-    background-color: ${props => props.theme['color-very-pale-gray']};
+    background-color: ${props => props.theme.colorVeryPaleGray};
   }
   
   html,

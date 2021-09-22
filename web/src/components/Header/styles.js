@@ -1,14 +1,14 @@
 import styled from 'styled-components';
 import { device } from '../../styles/mediaQuery';
+import { contentMaxWidth } from '../../styles/mixins';
 
 const HeaderStyles = styled.header`
   position: relative;
   z-index: 100;
   .wrapper {
-    box-sizing: border-box;
-    margin: 0 auto;
-    max-width: 960px;
-    padding: 1em;
+    ${contentMaxWidth};
+    padding-top: 1em;
+    padding-bottom: 1em;
     display: flex;
     @media ${device.mobile} {
       padding: 1.5em 1.5em;
@@ -16,7 +16,7 @@ const HeaderStyles = styled.header`
   }
 
   .branding {
-    font-weight: 600;
+    font-family: 'montserratsemibold', sans-serif;
     flex: 1;
 
     & a {
@@ -26,7 +26,7 @@ const HeaderStyles = styled.header`
       text-decoration: none;
 
       &:hover {
-        color: ${props => props.theme['color-accent']};
+        color: ${props => props.theme.colorAccent};
       }
     }
   }
@@ -58,11 +58,12 @@ const HeaderStyles = styled.header`
       li {
         list-style: none;
         a {
+          font-family: 'montserratsemibold', sans-serif;
           display: block;
           color: inherit;
           text-decoration: none;
           &:hover {
-            color: ${props => props.theme['color-accent']};
+            color: ${props => props.theme.colorAccent};
           }
         }
       }
@@ -70,9 +71,9 @@ const HeaderStyles = styled.header`
 
     @media ${device.mobileMax} {
       position: absolute;
-      background: ${props => props.theme['color-white']};
-      color: ${props => props.theme['color-black']};
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+      background: ${props => props.theme.colorVeryPaleGray};
+      color: ${props => props.theme.colorVeryDarkGray};
+      box-shadow: 0 3px 0 ${props => props.theme.colorVeryDarkGray};
       left: 0;
       right: 0;
       top: 4.3rem;

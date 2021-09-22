@@ -5,7 +5,7 @@ import {
   filterOutDocsWithoutSlugs,
   filterOutDocsPublishedInTheFuture
 } from '../lib/helpers';
-import Container from '../components/container';
+import Container from '../components/Container';
 import GraphQLErrorList from '../components/graphql-error-list';
 import ProjectPreviewGrid from '../components/project-preview-grid';
 import SEO from '../components/seo';

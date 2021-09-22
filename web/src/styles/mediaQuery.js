@@ -14,6 +14,9 @@ export const device = {
   desktop: `(min-width: ${breakpoints.desktop})`
 };
 
+/**
+ * this method is handy when extending breakpoint however the syntax doesn't highlight.
+ */
 // export const respondTo = Object.keys(breakpoints).reduce((accumulator, label) => {
 //   accumulator[label] = (...args) => css`
 //     @media (min-width: ${breakpoints[label]}) {

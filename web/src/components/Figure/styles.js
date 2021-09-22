@@ -7,8 +7,8 @@ const ImageContainer = styled.figure`
     display: block !important;
   }
   & figcaption {
-    font-size: ${props => props.theme['font-small-size']};
-    line-height: ${props => props.theme['font-small-line-height']};
+    font-size: ${props => props.theme.fontSmallSize};
+    line-height: ${props => props.theme.fontSmallLineHeight};
     margin: 0 0;
   }
 `;
