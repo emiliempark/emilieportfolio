@@ -1,6 +1,6 @@
 import { Link } from 'gatsby';
 import React from 'react';
-import ProjectPreview from './project-preview';
+import ProjectPreview from '../ProjectPreview';
 
 import * as styles from './project-preview-grid.module.css';
 

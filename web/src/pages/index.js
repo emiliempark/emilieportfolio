@@ -7,7 +7,7 @@ import {
 } from '../lib/helpers';
 import Container from '../components/Container';
 import GraphQLErrorList from '../components/graphql-error-list';
-import ProjectPreviewGrid from '../components/project-preview-grid';
+import ProjectPreviewGrid from '../components/ProjectPreviewGrid';
 import SEO from '../components/seo';
 import Layout from '../containers/layout';
 

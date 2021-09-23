@@ -1,13 +1,13 @@
-import { format, distanceInWords, differenceInDays } from "date-fns";
-import React from "react";
-import { Link } from "gatsby";
-import { buildImageObj } from "../lib/helpers";
-import { imageUrlFor } from "../lib/image-url";
-import BlockContent from "./block-content";
-import Container from "./container";
-import RoleList from "./role-list";
+import { format, distanceInWords, differenceInDays } from 'date-fns';
+import React from 'react';
+// import { Link } from 'gatsby';
+import { buildImageObj } from '../../lib/helpers';
+import { imageUrlFor } from '../../lib/image-url';
+import BlockContent from '../block-content';
+import Container from '../Container';
+// import RoleList from '../../components/role-list';
 
-import * as styles from "./project.module.css";
+import * as styles from './project.module.css';
 
 function Project(props) {
   const { _rawBody, title, categories, mainImage, members, publishedAt, relatedProjects } = props;
@@ -17,9 +17,9 @@ function Project(props) {
         <div className={styles.mainImage}>
           <img
             src={imageUrlFor(buildImageObj(mainImage))
-              .width(1200)
-              .height(Math.floor((9 / 16) * 1200))
-              .fit("crop")
+              .width(1240)
+              .height(Math.floor((9 / 16) * 1240))
+              .fit('crop')
               .url()}
             alt={mainImage.alt}
           />
@@ -33,13 +33,13 @@ function Project(props) {
               <div className={styles.publishedAt}>
                 {differenceInDays(new Date(publishedAt), new Date()) > 3
                   ? distanceInWords(new Date(publishedAt), new Date())
-                  : format(new Date(publishedAt), "MMMM Do YYYY")}
+                  : format(new Date(publishedAt), 'MMMM Do YYYY')}
               </div>
             )}
             {_rawBody && <BlockContent blocks={_rawBody || []} />}
           </div>
+          {/*
           <aside className={styles.metaContent}>
-            
             {members && members.length > 0 && <RoleList items={members} title="Project members" />}
             {categories && categories.length > 0 && (
               <div className={styles.categories}>
@@ -68,6 +68,8 @@ function Project(props) {
               </div>
             )}
           </aside>
+            
+           */}
         </div>
       </Container>
     </article>
