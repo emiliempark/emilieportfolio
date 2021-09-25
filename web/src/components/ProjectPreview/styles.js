@@ -7,7 +7,7 @@ const ProjectPreviewStyles = styled.div`
     text-decoration: none;
     position: relative;
     &:hover {
-      box-shadow: 3px 3px 0 3px black;
+      box-shadow: 10px 10px 0 -3px black;
       .leadMediaThumb {
         overflow: hidden;
         & img {

@@ -22,7 +22,8 @@ export const query = graphql`
           current
         }
       }
-      mainImage {
+
+      articleHeadImage {
         crop {
           _key
           _type
@@ -42,7 +43,6 @@ export const query = graphql`
         asset {
           _id
         }
-        alt
       }
       title
       slug {

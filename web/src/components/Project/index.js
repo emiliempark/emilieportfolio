@@ -1,36 +1,50 @@
 import { format, distanceInWords, differenceInDays } from 'date-fns';
 import React from 'react';
-// import { Link } from 'gatsby';
+import { Link } from 'gatsby';
 import { buildImageObj } from '../../lib/helpers';
 import { imageUrlFor } from '../../lib/image-url';
 import BlockContent from '../block-content';
 import Container from '../Container';
-// import RoleList from '../../components/role-list';
+import RoleList from '../../components/RoleList';
 
-import * as styles from './project.module.css';
+// import * as styles from './project.module.css';
+import ProjectStyles from './styles';
 
 function Project(props) {
-  const { _rawBody, title, categories, mainImage, members, publishedAt, relatedProjects } = props;
+  const {
+    _rawBody,
+    title,
+    categories,
+    articleHeadImage,
+    members,
+    publishedAt,
+    relatedProjects
+  } = props;
   return (
-    <article className={styles.root}>
-      {props.mainImage && mainImage.asset && (
-        <div className={styles.mainImage}>
-          <img
-            src={imageUrlFor(buildImageObj(mainImage))
-              .width(1240)
-              .height(Math.floor((9 / 16) * 1240))
-              .fit('crop')
-              .url()}
-            alt={mainImage.alt}
-          />
+    <ProjectStyles className="root">
+      {props.title && (
+        <div className="articleHead">
+          <div
+            className="articleHeadImage"
+            style={{
+              backgroundImage: `url(${props.articleHeadImage &&
+                props.articleHeadImage.asset &&
+                imageUrlFor(buildImageObj(articleHeadImage))
+                  .width(1240)
+                  .height(250)
+                  .fit('crop')
+                  .url()})`
+            }}
+          >
+            <h1 className="title">{title}</h1>
+          </div>
         </div>
       )}
       <Container>
-        <div className={styles.grid}>
-          <div className={styles.mainContent}>
-            <h1 className={styles.title}>{title}</h1>
+        <div className="grid">
+          <div className="mainContent">
             {publishedAt && (
-              <div className={styles.publishedAt}>
+              <div className="publishedAt">
                 {differenceInDays(new Date(publishedAt), new Date()) > 3
                   ? distanceInWords(new Date(publishedAt), new Date())
                   : format(new Date(publishedAt), 'MMMM Do YYYY')}
@@ -38,22 +52,21 @@ function Project(props) {
             )}
             {_rawBody && <BlockContent blocks={_rawBody || []} />}
           </div>
-          {/*
-          <aside className={styles.metaContent}>
-            {members && members.length > 0 && <RoleList items={members} title="Project members" />}
-            {categories && categories.length > 0 && (
-              <div className={styles.categories}>
-                <h3 className={styles.categoriesHeadline}>Categories</h3>
+          <aside className="metaContent">
+            {/*members && members.length > 0 && <RoleList items={members} title="Project members" /> */}
+            {/*categories && categories.length > 0 && (
+              <div className="categories">
+                <h3 className="categoriesHeadline">Categories</h3>
                 <ul>
                   {categories.map(category => (
                     <li key={category._id}>{category.title}</li>
                   ))}
                 </ul>
               </div>
-            )}
+                  ) */}
             {relatedProjects && relatedProjects.length > 0 && (
-              <div className={styles.relatedProjects}>
-                <h3 className={styles.relatedProjectsHeadline}>Related projects</h3>
+              <div className="relatedProjects">
+                <h3 className="relatedProjectsHeadline">Related projects</h3>
                 <ul>
                   {relatedProjects.map(project => (
                     <li key={`related_${project._id}`}>
@@ -68,11 +81,12 @@ function Project(props) {
               </div>
             )}
           </aside>
+          {/*
             
            */}
         </div>
       </Container>
-    </article>
+    </ProjectStyles>
   );
 }
 
