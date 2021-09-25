@@ -53,6 +53,11 @@ export default {
       type: 'figure'
     },
     {
+      name: 'articleHeadImage',
+      title: 'Article Head Image',
+      type: 'image'
+    },
+    {
       name: 'categories',
       title: 'Categories',
       type: 'array',
