@@ -71,7 +71,20 @@ function Project(props) {
                   {relatedProjects.map(project => (
                     <li key={`related_${project._id}`}>
                       {project.slug ? (
-                        <Link to={`/project/${project.slug.current}`}>{project.title}</Link>
+                        <Link to={`/project/${project.slug.current}`}>
+                          <div className="imageWrapper">
+                            {project.mainImage && project.mainImage.asset && (
+                              <img
+                                src={imageUrlFor(buildImageObj(project.mainImage))
+                                  .width(600)
+                                  .height(Math.floor((16 / 16) * 600))
+                                  .url()}
+                                alt={project.mainImage.alt}
+                              />
+                            )}
+                          </div>
+                          <div className="textBoxCurtain">{project.title}</div>
+                        </Link>
                       ) : (
                         <span>{project.title}</span>
                       )}
@@ -81,9 +94,6 @@ function Project(props) {
               </div>
             )}
           </aside>
-          {/*
-            
-           */}
         </div>
       </Container>
     </ProjectStyles>
