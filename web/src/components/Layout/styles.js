@@ -96,8 +96,31 @@ export const GlobalStyles = createGlobalStyle`
   body > div,
   body > div > div {
     /* height: 100%; */
+    font-family: 'montserratregular';
   }
-  
+  h1,h2,h3,h4{
+      font-family: 'montserratextrabold';
+    }
+    h1{}
+    h2{}
+    h3{}
+    h4{}
+    p{}
+    strong{}
+    em{}
+
+  article{
+    h1,h2,h3,h4{
+      font-family: 'montserratsemibold';
+    }
+    h1{}
+    h2{}
+    h3{}
+    h4{}
+    p{}
+    strong{}
+    em{}
+  }
 `;
 
 export const ContentStyles = styled.div`
@@ -111,7 +134,7 @@ export const ContentStyles = styled.div`
 `;
 
 export const FooterStyles = styled.footer`
-  border-top: 1px solid ${props => props.theme.colorLightGray};
+  /* border-top: 1px solid ${props => props.theme.colorLightGray}; */
   & a {
     color: inherit;
     text-decoration: none;
