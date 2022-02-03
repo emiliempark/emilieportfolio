@@ -43,7 +43,27 @@ export const query = graphql`
           }
         }
       }
-
+      mainImage {
+        crop {
+          _key
+          _type
+          top
+          bottom
+          left
+          right
+        }
+        hotspot {
+          _key
+          _type
+          x
+          y
+          height
+          width
+        }
+        asset {
+          _id
+        }
+      }
       articleHeadImage {
         crop {
           _key
