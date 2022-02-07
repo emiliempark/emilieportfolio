@@ -24,7 +24,12 @@ const ProjectStyles = styled.article`
       background-position: center;
       background-size: cover;
       & > .title {
-        text-align: center;
+        display: flex;
+        width: 100%;
+        height: 100%;
+        backdrop-filter: blur(5px);
+        justify-content: center;
+        align-items: center;
         color: #f2f2f2;
         font-family: 'montserratextrabold';
         text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.6);
@@ -143,6 +148,7 @@ const ProjectStyles = styled.article`
             text-align: center;
             font-family: 'montserratsemibold';
             font-size: 16px;
+            backdrop-filter: blur(5px);
           }
         }
       }

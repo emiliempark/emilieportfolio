@@ -22,6 +22,8 @@ function Project(props) {
     relatedProjects
   } = props;
 
+  const headImage = articleHeadImage && articleHeadImage.asset ? articleHeadImage : mainImage;
+
   return (
     <ProjectStyles className="root">
       {props.title && (
@@ -29,13 +31,10 @@ function Project(props) {
           <div
             className="articleHeadImage"
             style={{
-              backgroundImage: `url(${
-                imageUrlFor(buildImageObj(
-                  props.articleHeadImage && props.articleHeadImage.asset ? articleHeadImage : mainImage))
-                  .width(1240)
-                  .height(250)
-                  .fit('crop')
-                  .url()})`
+              backgroundImage: `url(${imageUrlFor(buildImageObj(headImage))
+                .width(1240)
+                .height(250)
+                .fit('crop')})`
             }}
           >
             <h1 className="title">{title}</h1>
