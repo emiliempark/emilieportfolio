@@ -22,14 +22,15 @@ function Project(props) {
     relatedProjects
   } = props;
 
-  const headImage = articleHeadImage && articleHeadImage.asset ? articleHeadImage : mainImage;
+  const isHeadImageExist = articleHeadImage && articleHeadImage.asset;
+  const headImage = isHeadImageExist ? articleHeadImage : mainImage;
 
   return (
     <ProjectStyles className="root">
       {props.title && (
         <div className="articleHead">
           <div
-            className="articleHeadImage"
+            className={`articleHeadImage ${isHeadImageExist ? 'headImageExist' : 'headImageNull'}`}
             style={{
               backgroundImage: `url(${imageUrlFor(buildImageObj(headImage))
                 .width(1240)
@@ -54,8 +55,8 @@ function Project(props) {
             {_rawBody && <BlockContent blocks={_rawBody || []} />}
           </div>
           <aside className="metaContent">
-            {/*members && members.length > 0 && <RoleList items={members} title="Project members" /> */}
-            {/*categories && categories.length > 0 && (
+            {members && members.length > 0 && <RoleList items={members} title="Project members" />}
+            {categories && categories.length > 0 && (
               <div className="categories">
                 <h3 className="categoriesHeadline">Categories</h3>
                 <ul>
@@ -64,7 +65,7 @@ function Project(props) {
                   ))}
                 </ul>
               </div>
-                  ) */}
+            )}
             {relatedProjects && relatedProjects.length > 0 && (
               <div className="relatedProjects">
                 <h3 className="relatedProjectsHeadline">Related projects</h3>
